@@ -55,7 +55,7 @@ class AdminService{
     async updateAdmin(req,res){
         const { adminId } = req.params
         const { fullname, phone, password } = req.body
-        const { photo } = req.file
+        const  photo  = req.file?.filename
 
         const existAdmin = await pool.query('select * from admins where id=$1', [adminId])
 
